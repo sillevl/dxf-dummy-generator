@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "Creates dummy dxf files"
   s.authors     = ["Sille Van Landschoot"]
   s.email       = 'info@sillevl.be'
-  s.files       = ["lib/dxf-dummy-generator.rb"]
+  s.files       = ["lib/dxf-dummy-generator.rb"] + Dir['lib/**/*.rb']
   s.homepage    =
     'http://rubygems.org/gems/dxf-dummy-generator'
 end
