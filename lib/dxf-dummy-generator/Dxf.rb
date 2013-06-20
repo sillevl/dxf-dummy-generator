@@ -10,7 +10,7 @@ class DXF
 		lines = (settings.lines.count / count).floor
 		r = lines #dynamicly scale circles to avoid precision problems
 		order = Array(0..count)
-		order = order.shuffle(random: settings.contours.seed) if settings.contours.random
+		order.shuffle!(random: settings.contours.seed) if settings.contours.random
 		raster = Math::sqrt(count).ceil
 		settings.contours.count.times do |i|
 			lines = lines + (settings.lines.count % lines) if i == (settings.contours.count - 1)
@@ -24,7 +24,7 @@ class DXF
 	def to_s
 		header = ["0", "SECTION", "2" , "ENTITIES"]
 		footer = ["0", "ENDSEC", "0", "EOF"]
-		@contours = @contours.shuffle(random: @settings.lines.seed) if @settings.lines.random
+		@contours.flatten!(1).shuffle!(random: @settings.lines.seed) #if @settings.lines.random
 		(header << @contours << footer) * "\n"
 	end
 
