@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'dxf-dummy-generator'
+
+app = DxfDummyGenerator.new(ARGV)
