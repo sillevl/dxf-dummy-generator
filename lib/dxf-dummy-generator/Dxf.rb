@@ -7,15 +7,15 @@ class DXF
 		@settings = settings
 		@contours = Array.new
 		count = settings.contours.count
-		r = 9
+		lines = (settings.lines.count / count).floor
+		r = lines #dynamicly scale circles to avoid precision problems
 		order = Array(0..count)
 		order = order.shuffle(random: settings.contours.seed) if settings.contours.random
 		raster = Math::sqrt(count).ceil
 		settings.contours.count.times do |i|
-			lines = (settings.lines.count / count).floor
 			lines = lines + (settings.lines.count % lines) if i == (settings.contours.count - 1)
-			x = 20 * (order[i] % raster)
-			y = 20 * (order[i] / raster)
+			x = 2 * r * 1.1 * (order[i] % raster)
+			y = 2 * r * 1.1 * (order[i] / raster)
 			center = Point.new(x, y)
 			@contours << getLines(lines, center, r)
 		end
