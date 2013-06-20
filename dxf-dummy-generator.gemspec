@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name        = 'dxf_dummy_generator'
-  s.version     = '0.0.2'
+  s.version     = '0.0.3'
   s.executables << 'dxf-dummy-generator'
-  s.date        = '2013-06-19'
+  s.date        = '2013-06-20'
   s.summary     = "DXF dummy generatore"
   s.description = "Creates dummy dxf files"
   s.authors     = ["Sille Van Landschoot"]
